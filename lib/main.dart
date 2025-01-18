@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
       children: [
         SizedBox(
-          height: 300,
+          height: 600,
         ),
         Slider(
           value: _moodValue,
