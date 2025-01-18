@@ -38,11 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, child) {
             double interpolation = _moodValue.clamp(0.0, 1.0);
 
-            return Lottie.asset(interpolation < 0.33
-                ? 'assets/animation/sad.json'
-                : interpolation < 0.66
-                    ? 'assets/animation/nuetral.json'
-                    : 'assets/animation/happy.json');
+            return Lottie.asset(
+                interpolation < 0.33
+                    ? 'assets/animation/sad.json'
+                    : interpolation < 0.66
+                        ? 'assets/animation/nuetral.json'
+                        : 'assets/animation/happy.json',
+                width: 200);
           },
         ),
         SizedBox(
