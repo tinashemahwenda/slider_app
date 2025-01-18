@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onChanged: (double value) {
             setState(() {
               _moodValue = value;
+              print('Slider value: $value');
             });
           },
           min: 0.0,
