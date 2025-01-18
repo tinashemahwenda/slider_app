@@ -25,6 +25,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   double _moodValue = 0.5;
+  final _moodValueNotifier = ValueNotifier<double>(0.5);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 200,
         ),
         AnimatedBuilder(
-          animation: _moodValue,
+          animation: _moodValueNotifier,
           builder: (context, child) {
             double interpolation = _moodValue.clamp(0.0, 1.0);
 
