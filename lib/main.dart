@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 void main() {
   runApp(MoodSlider());
