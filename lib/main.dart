@@ -35,53 +35,54 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
-      children: [
-        SizedBox(
-          height: 200,
-        ),
-        AnimatedBuilder(
-          animation: _moodValueNotifier,
-          builder: (context, child) {
-            double interpolation = _moodValue.clamp(0.0, 1.0);
+          children: [
+            SizedBox(
+              height: 200,
+            ),
+            AnimatedBuilder(
+              animation: _moodValueNotifier,
+              builder: (context, child) {
+                double interpolation = _moodValue.clamp(0.0, 1.0);
 
-            return Lottie.asset(
-                interpolation < 0.33
-                    ? 'assets/animations/sad.json'
-                    : interpolation < 0.66
-                        ? 'assets/animations/nuetral.json'
-                        : 'assets/animations/happy.json',
-                width: 200);
-          },
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        Text(
-          _moodValue < 0.33
-              ? 'Sad'
-              : _moodValue < 0.67
-                  ? 'Nuetral'
-                  : 'Happy',
-          style: TextStyle(
-            fontSize: 30,
-          ),
-        ),
-        SizedBox(
-          height: 100,
-        ),
-        Slider(
-          value: _moodValue,
-          onChanged: (double value) {
-            setState(() {
-              _moodValue = value;
-              print('Slider value: $value');
-            });
-          },
-          min: 0.0,
-          max: 1.0,
-        ),
-      ],
-    ));
+                return Lottie.asset(
+                    interpolation < 0.33
+                        ? 'assets/animations/sad.json'
+                        : interpolation < 0.66
+                            ? 'assets/animations/nuetral.json'
+                            : 'assets/animations/happy.json',
+                    width: 200);
+              },
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              _moodValue < 0.33
+                  ? 'Sad'
+                  : _moodValue < 0.67
+                      ? 'Nuetral'
+                      : 'Happy',
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Slider(
+              value: _moodValue,
+              onChanged: (double value) {
+                setState(() {
+                  _moodValue = value;
+                  print('Slider value: $value');
+                });
+              },
+              min: 0.0,
+              max: 1.0,
+            ),
+          ],
+        ));
   }
 }
