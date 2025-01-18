@@ -47,15 +47,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
             return Lottie.asset(
                 interpolation < 0.33
-                    ? 'assets/animation/sad.json'
+                    ? 'assets/animations/sad.json'
                     : interpolation < 0.66
-                        ? 'assets/animation/nuetral.json'
-                        : 'assets/animation/happy.json',
+                        ? 'assets/animations/nuetral.json'
+                        : 'assets/animations/happy.json',
                 width: 200);
           },
         ),
         SizedBox(
-          height: 200,
+          height: 50,
+        ),
+        Text(
+          _moodValue < 0.33
+              ? 'Sad'
+              : _moodValue < 0.67
+                  ? 'Nuetral'
+                  : 'Happy',
+          style: TextStyle(
+            fontSize: 30,
+          ),
+        ),
+        SizedBox(
+          height: 100,
         ),
         Slider(
           value: _moodValue,
