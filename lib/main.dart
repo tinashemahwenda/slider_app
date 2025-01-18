@@ -15,15 +15,34 @@ class MoodSlider extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  double _moodValue = 0.5;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Mood Slider'),
-      ),
-    );
+        body: Column(
+      children: [
+        SizedBox(
+          height: 300,
+        ),
+        Slider(
+          value: _moodValue,
+          onChanged: (double value) {
+            setState(() {
+              _moodValue = value;
+            });
+          },
+          min: 0.0,
+          max: 1.0,
+        ),
+      ],
+    ));
   }
 }
